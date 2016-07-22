@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:orientation = "vertical"
+    android:layout_height="match_parent">
+    <com.example.lpc.viewpagersample.view.MyViewPager
+        android:id="@+id/vp_home"
+        android:layout_above="@+id/llMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.lpc.viewpagersample.view.MyViewPager>
+    <LinearLayout
+        android:id="@+id/llMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@drawable/main_bar"
+        android:paddingBottom="@dimen/padding_size_2"
+        android:paddingTop="@dimen/padding_size_2">
+
+        <LinearLayout
+            android:id="@+id/ll_home"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal|bottom">
+
+                <ImageView
+                    android:id="@+id/iv_home"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/selector_password_img"
+                    android:gravity="center"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_Size3"
+                android:text="@string/password"
+                android:textColor="#999999"
+                android:textSize="@dimen/textSize_12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal|bottom">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/selector_diary_img"
+                    android:gravity="center"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_Size3"
+                android:text="@string/diary"
+                android:textColor="#999999"
+                android:textSize="@dimen/textSize_12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_interest"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal|bottom">
+
+                <ImageView
+                    android:id="@+id/iv_interest"
+                    android:layout_width="25dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/selector_account_img"
+                    android:gravity="center"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_interest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_Size3"
+                android:text="@string/account"
+                android:textColor="#999999"
+                android:textSize="@dimen/textSize_12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_person"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal|bottom">
+
+                <ImageView
+                    android:id="@+id/iv_person"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/selector_person_img"
+                    android:gravity="center"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_Size3"
+                android:text="@string/person"
+                android:textColor="#999999"
+                android:textSize="@dimen/textSize_12" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

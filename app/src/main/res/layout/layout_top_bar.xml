@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.example.lpc.viewpagersample.view.TopMenu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    custom:centerText="标题"
+    custom:leftImg="@drawable/title_btn_back"
+    custom:rightImg="@drawable/title_btn_menu"
+    android:layout_height="wrap_content">
+
+
+</com.example.lpc.viewpagersample.view.TopMenu>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Private Memory</string>
+
+    <!--主页menu-->
+    <string name="password">密码</string>
+    <string name="diary">日记</string>
+    <string name="account">账本</string>
+    <string name="person">个人</string>
+
+    <string name="search">搜索</string>
+    <string name="search_description">搜索想要的密码</string>
+
+
+
+
+</resources>
