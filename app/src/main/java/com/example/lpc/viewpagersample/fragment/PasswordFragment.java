@@ -91,6 +91,7 @@ public class PasswordFragment extends Fragment {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 final Dialog dialog = builder.create();
                 final RecyclerAdapter tempAdapter = adapter ;
+                builder.setTitle("确定要删除这条密码记录吗？") ;
                 builder.setPositiveButton("删除", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

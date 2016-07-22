@@ -2,12 +2,14 @@ package com.example.lpc.viewpagersample.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,7 +31,7 @@ public class TopMenu extends RelativeLayout {
     public OnBarItemClickListener mListener ;
 
     public TopMenu(Context context) {
-        super(context);
+        super(context,null);
         this.mContext = context ;
 
     }
@@ -37,6 +39,30 @@ public class TopMenu extends RelativeLayout {
     public TopMenu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context ;
+
+
+    }
+    public void setOnBarItemClickListener(OnBarItemClickListener listener) {
+        this.mListener = listener ;
+    }
+
+    /**
+     * 注意使用2个参数的构造函数，一开始使用3个参数，结果就是显示不出来
+     * @param context
+     * @param attrs
+     */
+    public TopMenu(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        this.mContext = context ;
+
+
+        mLeftImg = new ImageButton(mContext) ;
+        mLeftImg.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+//        mLeftImg.setScaleType(ImageView.ScaleType.FIT_XY);
+        mRightImg = new ImageButton(mContext) ;
+        mRightImg.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+//        mRightImg.setScaleType(ImageView.ScaleType.FIT_XY);
+        mCenterText = new TextView(mContext) ;
 
         TypedArray array = mContext.obtainStyledAttributes(attrs,R.styleable.TopMenu) ;
 
@@ -53,6 +79,8 @@ public class TopMenu extends RelativeLayout {
 
         LayoutParams centerParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         centerParams.addRule(CENTER_IN_PARENT,TRUE);
+//        centerParams.addRule(CENTER_VERTICAL);
+        centerParams.setMargins(0,15,0,0);
         addView(mCenterText,centerParams);
 
         mLeftImg.setImageDrawable(leftImg);
@@ -72,14 +100,6 @@ public class TopMenu extends RelativeLayout {
         });
 
         array.recycle();
-    }
-    public void setOnBarItemClickListener(OnBarItemClickListener listener) {
-        this.mListener = listener ;
-    }
-
-    public TopMenu(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mContext = context ;
     }
 
     public interface OnBarItemClickListener{

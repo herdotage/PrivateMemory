@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="TopMenu">
-        <attr name="leftImg" format="reference"></attr>
+        <attr name="leftImg" format="reference|color"></attr>
         <attr name="centerText" format="string"></attr>
-        <attr name="rightImg" format="reference"></attr>
+        <attr name="rightImg" format="reference|color"></attr>
     </declare-styleable>
 </resources>
