@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.ParcelUuid;
 import android.util.Log;
 
 /**
@@ -18,6 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final static int DB_VERSION = 2 ;
     public final static String TABLE_NAME_USER = "user" ;
     public final static String TABLE_NAME_PWD = "pwd" ;
+    public final static String TABLE_NAME_USER_PWD = "user_pwd" ;
 
     private final static String CREATE_USER = "CREATE table " + TABLE_NAME_USER + " (" +
             "id int(5) NOT NULL auto_increment ," +
@@ -43,6 +45,11 @@ public class DBHelper extends SQLiteOpenHelper {
             "updateat VARCHAR(50) ," +
             "webimgstr MEDIUMBLOB ," +
             "PRIMARY KEY (id)" +
+            ")" ;
+    private final static String CREATE_USER_PWD = "CREATE table " + TABLE_NAME_USER_PWD + " (" +
+            "id int(5) NOT NULL auto_increment ," +
+            "user_id int(5) " +
+            "pwd_id int(5) ," +
             ")" ;
 
     private final static String DELETE_USER = "" ;
@@ -71,6 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.beginTransaction();
         sqLiteDatabase.execSQL(CREATE_USER);
         sqLiteDatabase.execSQL(CREATE_PWD);
+        sqLiteDatabase.execSQL(CREATE_USER_PWD);
         sqLiteDatabase.endTransaction();
 
         Log.d("LPC","create db..") ;

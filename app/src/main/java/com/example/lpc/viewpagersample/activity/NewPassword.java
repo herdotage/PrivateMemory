@@ -3,10 +3,12 @@ package com.example.lpc.viewpagersample.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lpc.viewpagersample.R;
+import com.example.lpc.viewpagersample.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class NewPassword extends Activity implements Spinner.OnItemSelectedListe
     public List<String> mAddrList, mAccountList, mPwdList, mConnEmailList, mConnPhoneList ;
     public ArrayAdapter<String> mAddrAdapter, mAccountAdapter, mPwdAdapter, mConnEmailAdapter, mConnPhoneAdapter ;
 
+    private Button btnAdd, btnCancel ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,7 @@ public class NewPassword extends Activity implements Spinner.OnItemSelectedListe
         mAccountList.add("zifary");
         mAccountList.add("herdotage@gmail.com");
         mAccountList.add("927528219@qq.com");
-        mAddrAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,mAccountList);
+        mAccountAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,mAccountList);
         mSpWebAccount.setAdapter(mAccountAdapter);
         mSpWebAccount.setOnItemSelectedListener(this);
 
@@ -96,6 +100,27 @@ public class NewPassword extends Activity implements Spinner.OnItemSelectedListe
         mSpConnPhone.setOnItemSelectedListener(this);
 
 
+        btnAdd = (Button) findViewById(R.id.btn_add) ;
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view,"添加成功！",Snackbar.LENGTH_LONG).show();
+            }
+        });
+        btnCancel = (Button) findViewById(R.id.btn_cancel) ;
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new CommonUtils(NewPassword.this,MainActivity.class).returnToHome();
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void initView() {
@@ -117,8 +142,7 @@ public class NewPassword extends Activity implements Spinner.OnItemSelectedListe
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewPassword.this,MainActivity.class) ;
-                startActivity(intent);
+                new CommonUtils(NewPassword.this,MainActivity.class).returnToHome();
             }
         });
         mMenu = (ImageView) findViewById(R.id.iv_top_menu) ;
@@ -171,10 +195,10 @@ public class NewPassword extends Activity implements Spinner.OnItemSelectedListe
             default:
                 break;
         }
-        Log.d("LPC","view: "+view.getId());
-        Log.d("LPC","i: "+i);
-        Log.d("LPC","l: "+l);
-        Log.d("LPC","mSpWebAddr.getSelectedItem(): "+mSpWebAddr.getSelectedItem().toString());
+//        Log.d("LPC","view: "+view.getId());
+//        Log.d("LPC","i: "+i);
+//        Log.d("LPC","l: "+l);
+//        Log.d("LPC","mSpWebAddr.getSelectedItem(): "+mSpWebAddr.getSelectedItem().toString());
 
     }
 

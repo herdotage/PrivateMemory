@@ -82,7 +82,7 @@ public class PasswordFragment extends Fragment {
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(), PasswordDetails.class) ;
                 intent.putExtra("siteId",mPasswordInfos.get(position).getObjectId()) ;
-                Log.d("LPC","siteId:------>" + mPasswordInfos.get(position).getObjectId()) ;
+//                Log.d("LPC","siteId:------>" + mPasswordInfos.get(position).getObjectId()) ;
                 getActivity().startActivity(intent);
             }
 

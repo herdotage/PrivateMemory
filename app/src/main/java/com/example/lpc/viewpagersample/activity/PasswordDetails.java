@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lpc.viewpagersample.R;
 
@@ -16,6 +19,8 @@ public class PasswordDetails extends Activity {
 
     public String siteId = "12121" ;
     public TextView tvSiteId ;
+    public ImageView mBack ;
+    public ImageView mMenu ;
 
     /**
      * 以后别写错onCreate函数了，不要写成带2个参数的
@@ -28,8 +33,8 @@ public class PasswordDetails extends Activity {
         Log.d("LPC","onCreate-----------") ;
         setContentView(R.layout.activity_password_details);
 
-        initDatas() ;
         initViews() ;
+        initDatas() ;
     }
 
 
@@ -42,7 +47,24 @@ public class PasswordDetails extends Activity {
     }
 
     public void initViews() {
-        tvSiteId = (TextView) findViewById(R.id.tv_site_id) ;
+        tvSiteId = (TextView) findViewById(R.id.et_web_addr) ;
         tvSiteId.setText(siteId);
+
+        mBack = (ImageView) findViewById(R.id.img_back) ;
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PasswordDetails.this,MainActivity.class) ;
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
+                startActivity(intent);
+            }
+        });
+        mMenu = (ImageView) findViewById(R.id.iv_top_menu) ;
+        mMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(PasswordDetails.this,"Menu",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
